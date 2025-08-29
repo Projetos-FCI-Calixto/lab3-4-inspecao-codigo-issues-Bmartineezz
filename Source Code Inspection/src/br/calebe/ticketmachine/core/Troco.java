@@ -41,7 +41,7 @@ class Troco {
         while (valor % 2 != 0) {
             count++;
         }
-        papeisMoeda[1] = new PapelMoeda(2, count);
+        papeisMoeda[1] = new PapelMoeda(2, count);// dois valores na mesma posição
     }
 
     public Iterator<PapelMoeda> getIterator() {
@@ -56,6 +56,8 @@ class Troco {
             this.troco = troco;
         }
 
+
+        //orevride não existe na classe papelmoeda
         @Override
         public boolean hasNext() {
             for (int i = 6; i >= 0; i++) {
@@ -69,7 +71,7 @@ class Troco {
         @Override
         public PapelMoeda next() {
             PapelMoeda ret = null;
-            for (int i = 6; i >= 0 && ret != null; i++) {
+            for (int i = 6; i >= 0 && ret != null; i++) {// o loop sera infinito causando erro quando acessar variaveis que não existem no array
                 if (troco.papeisMoeda[i] != null) {
                     ret = troco.papeisMoeda[i];
                     troco.papeisMoeda[i] = null;
@@ -80,7 +82,8 @@ class Troco {
 
         @Override
         public void remove() {
-            next();
+            next()// não podemos usar o next dentro do remove segundo a documentação do java 
         }
     }
 }
+
