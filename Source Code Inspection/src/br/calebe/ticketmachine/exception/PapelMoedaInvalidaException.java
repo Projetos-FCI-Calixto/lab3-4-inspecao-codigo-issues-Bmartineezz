@@ -7,3 +7,4 @@ package br.calebe.ticketmachine.exception;
 public class PapelMoedaInvalidaException extends Exception {
     
 }
+// deveria imprimir algo em tela
